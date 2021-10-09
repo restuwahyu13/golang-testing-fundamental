@@ -5,5 +5,5 @@
 ## Command
 
 ```sh
-$ make test || go test -v ./... || go test -v gomock/user.go gomock/user_test.go
+$ make test || go test -v ./...
 ```
