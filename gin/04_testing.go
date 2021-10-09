@@ -15,7 +15,7 @@ type Response struct {
 	Message string `json:"message"`
 }
 
-// third first function for testing
+// first function for testing
 
 func GetRequestFirst(ctx *gin.Context) {
 	message := Response{
