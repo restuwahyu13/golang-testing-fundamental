@@ -17,12 +17,12 @@ $ go mod download || go get .
 
 ## Rule Using Ginkgo
 
-You must set up like this before you run testing using ginkgo, because this is bootstrapping for your test in single file not each every file, if you create new test you must need code like this again with difference name.
+You must set up like this before you run testing using ginkgo, because this is bootstrapping for your test in single file not each every file, if you create new test you must need code like this again with difference name method.
 
 ```go
 func TestCalculate(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Calculate Suite") // in this name must be match with your call test in describe wrapper
+	RunSpecs(t, "Calculate Suite")
 }
 ```
 
