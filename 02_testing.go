@@ -1,35 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"reflect"
 
-type MathBasicx struct {
-	X, Y int
-}
+	"golang.org/x/text/date"
+)
 
-func Additionx(x, y int) int {
-	data := MathBasicx{X: x, Y: y}
-	result := data.X + data.Y
-	defer fmt.Sprintf("your result is %d", result)
-	return result
-}
+func InstanceOf(data interface{}) bool {
 
-func Substractx(x, y int) int {
-	data := MathBasicx{X: x, Y: y}
-	result := data.X - data.Y
-	defer fmt.Sprintf("your result is %d", result)
-	return result
-}
-
-func Dividex(x, y int) int {
-	data := MathBasicx{X: x, Y: y}
-	result := data.X / data.Y
-	defer fmt.Sprintf("your result is %d", result)
-	return result
-}
-
-func Multiplicationx(x, y int) int {
-	data := MathBasicx{X: x, Y: y}
-	result := data.X * data.Y
-	defer fmt.Sprintf("your result is %d", result)
-	return result
+	switch reflect.TypeOf(data) {
+	case reflect.TypeOf("Hello World"):
+		return true
+	case reflect.TypeOf(date.Indochina):
+		return true
+	case reflect.TypeOf(true):
+		return true
+	default:
+		return false
+	}
 }

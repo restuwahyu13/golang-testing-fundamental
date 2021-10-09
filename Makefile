@@ -5,7 +5,7 @@ test:
 	@gotest -v ./...
 
 ginkgo:
-	@ginkgo -v
+	@ginkgo -v -r -p
 
 ####################################
 ## Golang Command Testing Coverage
