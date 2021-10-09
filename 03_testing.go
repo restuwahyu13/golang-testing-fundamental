@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 )
 
@@ -12,7 +11,7 @@ type Response struct {
 	Message string `json:"message"`
 }
 
-func GetRequest(rw http.ResponseWriter, req *http.Request) {
+func HttpGetRequest(rw http.ResponseWriter, req *http.Request) {
 	rw.Header().Add("Content-Type", "application/json")
 
 	if req.Method == "GET" && req.URL.Path == "/get" {
@@ -20,13 +19,14 @@ func GetRequest(rw http.ResponseWriter, req *http.Request) {
 		json, _ := json.Marshal(data)
 		fmt.Fprint(rw, string(json))
 	} else {
+		rw.WriteHeader(http.StatusBadRequest)
 		data := Response{Message: "Bad Request"}
 		json, _ := json.Marshal(data)
 		fmt.Fprint(rw, string(json))
 	}
 }
 
-func PostRequest(rw http.ResponseWriter, req *http.Request) {
+func HttpPostRequest(rw http.ResponseWriter, req *http.Request) {
 	rw.Header().Add("Content-Type", "application/json")
 
 	if req.Method == "POST" && req.URL.Path == "/post" {
@@ -45,15 +45,16 @@ func PostRequest(rw http.ResponseWriter, req *http.Request) {
 		}
 
 	} else {
+		rw.WriteHeader(http.StatusBadRequest)
 		data := Response{Message: "Bad Request"}
 		json, _ := json.Marshal(data)
 		fmt.Fprint(rw, string(json))
 	}
 }
 
-func main() {
-	http.HandleFunc("/get", GetRequest)
-	http.HandleFunc("/post", PostRequest)
+// func main() {
+// 	http.HandleFunc("/get", HttpGetRequest)
+// 	http.HandleFunc("/post", HttpPostRequest)
 
-	log.Fatal(http.ListenAndServe(":8000", nil))
-}
+// 	log.Fatal(http.ListenAndServe(":8000", nil))
+// }

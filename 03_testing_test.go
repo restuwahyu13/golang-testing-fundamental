@@ -19,7 +19,7 @@ func TestGetRequest(tt *testing.T) {
 
 		rq := httptest.NewRequest(http.MethodGet, "/get", nil)
 		rr := httptest.NewRecorder()
-		handler := http.HandlerFunc(GetRequest)
+		handler := http.HandlerFunc(HttpGetRequest)
 
 		handler.ServeHTTP(rr, rq)
 
@@ -47,7 +47,7 @@ func TestGetRequest(tt *testing.T) {
 
 		rq := httptest.NewRequest(http.MethodGet, "/getx", nil)
 		rr := httptest.NewRecorder()
-		handler := http.HandlerFunc(GetRequest)
+		handler := http.HandlerFunc(HttpGetRequest)
 
 		handler.ServeHTTP(rr, rq)
 
@@ -59,7 +59,7 @@ func TestGetRequest(tt *testing.T) {
 
 		r := rr.Result()
 
-		assert.Equal(r.StatusCode, 200)
+		assert.Equal(r.StatusCode, 400)
 		assert.Equal(r.Header.Get("content-type"), "application/json")
 		assert.Equal(response.Message, "Bad Request")
 	})
@@ -74,7 +74,7 @@ func TestPostRequest(tt *testing.T) {
 
 		rq := httptest.NewRequest(http.MethodPost, "/post", nil)
 		rr := httptest.NewRecorder()
-		handler := http.HandlerFunc(PostRequest)
+		handler := http.HandlerFunc(HttpPostRequest)
 
 		handler.ServeHTTP(rr, rq)
 
@@ -104,7 +104,7 @@ func TestPostRequest(tt *testing.T) {
 
 		rq := httptest.NewRequest(http.MethodPost, "/post", bytes.NewBufferString(body))
 		rr := httptest.NewRecorder()
-		handler := http.HandlerFunc(PostRequest)
+		handler := http.HandlerFunc(HttpPostRequest)
 
 		handler.ServeHTTP(rr, rq)
 
@@ -125,7 +125,7 @@ func TestPostRequest(tt *testing.T) {
 		assert.Equal(response.Message, "Data From TestRequest")
 	})
 
-	tt.Run("Should be not parsing data from body error", func(t *testing.T) {
+	tt.Run("Should be parsing data from body error", func(t *testing.T) {
 
 		var response Response
 		assert := assert.New(t)
@@ -134,7 +134,7 @@ func TestPostRequest(tt *testing.T) {
 
 		rq := httptest.NewRequest(http.MethodPost, "/postx", bytes.NewBufferString(body))
 		rr := httptest.NewRecorder()
-		handler := http.HandlerFunc(PostRequest)
+		handler := http.HandlerFunc(HttpPostRequest)
 
 		handler.ServeHTTP(rr, rq)
 
@@ -146,7 +146,7 @@ func TestPostRequest(tt *testing.T) {
 
 		r := rr.Result()
 
-		assert.Equal(r.StatusCode, 200)
+		assert.Equal(r.StatusCode, 400)
 		assert.Equal(r.Header.Get("content-type"), "application/json")
 		assert.Equal(response.Message, "Bad Request")
 	})
