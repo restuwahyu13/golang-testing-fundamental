@@ -19,5 +19,10 @@ $ make test || go test -v ./...
 - ### Coverage Testing
 
 ```sh
-$ make coverage || go test -cover -v ./...
+$ make coverage || go test -cover -v ./... || go test -coverprofile=coverage.out ./... || go tool cover -func=coverage.out
 ```
+
+## Testing And Coverage Testing Result
+
+<img src="./images/testing.png"/>
+<img src="./images/cover.png"/>
