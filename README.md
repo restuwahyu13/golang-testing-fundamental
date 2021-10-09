@@ -25,4 +25,4 @@ $ make coverage || go test -cover -v ./... || go test -coverprofile=coverage.out
 ## Testing And Coverage Testing Result
 
 <img src="./images/testing.png"/>
-<img src="./images/cover.png"/>
+<img src="./images/coverage.png"/>
