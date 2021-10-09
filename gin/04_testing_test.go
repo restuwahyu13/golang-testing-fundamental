@@ -65,6 +65,7 @@ func TestGetRequestSecond(tt *testing.T) {
 
 	tt.Run("Shoud be second get data from GET success not custom httptest", func(t *testing.T) {
 		assert := assert.New(t)
+		gin.SetMode(gin.TestMode)
 
 		req, _ := http.NewRequest(http.MethodGet, "/second", nil)
 		rr := httptest.NewRecorder()
@@ -81,6 +82,7 @@ func TestGetRequestSecond(tt *testing.T) {
 
 	tt.Run("Shoud be second get data from GET success with custom httptest", func(t *testing.T) {
 		assert := assert.New(t)
+		gin.SetMode(gin.TestMode)
 
 		rr, req, _ := utils.HttpRequest(http.MethodGet, "/second", nil)
 
@@ -99,6 +101,7 @@ func TestPostRequestSecond(tt *testing.T) {
 
 	tt.Run("Shoud be second get data from POST success not custom httptest", func(t *testing.T) {
 		assert := assert.New(t)
+		gin.SetMode(gin.TestMode)
 
 		req, _ := http.NewRequest(http.MethodPost, "/second", nil)
 		rr := httptest.NewRecorder()
@@ -115,6 +118,7 @@ func TestPostRequestSecond(tt *testing.T) {
 
 	tt.Run("Shoud be second get data from POST success with custom httptest", func(t *testing.T) {
 		assert := assert.New(t)
+		gin.SetMode(gin.TestMode)
 
 		rr, req, _ := utils.HttpRequest(http.MethodPost, "/second", nil)
 

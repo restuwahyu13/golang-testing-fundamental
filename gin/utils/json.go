@@ -10,6 +10,16 @@ type ResponseMeta struct {
 	Message string `json:"message"`
 }
 
+func Sringify(data interface{}) []byte {
+	res, err := json.Marshal(data)
+
+	if err != nil {
+		log.Fatalf("Strigify json data error %s", err)
+	}
+
+	return res
+}
+
 func Parse(data []byte) ResponseMeta {
 	var res ResponseMeta
 

@@ -4,6 +4,9 @@
 test:
 	@gotest -v ./...
 
+ginkgo:
+	@ginkgo -v
+
 ####################################
 ## Golang Command Testing Coverage
 ####################################
