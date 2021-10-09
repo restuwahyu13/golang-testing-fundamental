@@ -1,37 +1,82 @@
 package main
 
 import (
+	"reflect"
 	"testing"
 )
 
-func TestAdd(t *testing.T) {
-	ctx := Addition(5, 5)
+func TestAddition(tt *testing.T) {
 
-	if ctx != 10 {
-		t.Errorf("Test is fail: %d", ctx)
-	}
+	tt.Run("Should be addition value success", func(t *testing.T) {
+		ctx := Addition(5, 5)
+
+		if ctx != 10 {
+			t.FailNow()
+		}
+	})
+
+	tt.Run("Should be addition value is integer", func(t *testing.T) {
+		ctx := Addition(5, 5)
+
+		if reflect.TypeOf(ctx) == reflect.TypeOf("Hello Wordl") {
+			t.FailNow()
+		}
+	})
 }
 
-func TestSubtract(t *testing.T) {
-	ctx := Substract(5, 2)
+func TestSubtract(tt *testing.T) {
 
-	if ctx != 3 {
-		t.Errorf("Test is fail: %d", ctx)
-	}
+	tt.Run("Should be substract value success", func(t *testing.T) {
+		ctx := Substract(5, 2)
+
+		if ctx != 3 {
+			t.FailNow()
+		}
+	})
+
+	tt.Run("Should be substract value is integer", func(t *testing.T) {
+		ctx := Substract(5, 2)
+
+		if reflect.TypeOf(ctx) == reflect.TypeOf("Hello Wordl") {
+			t.FailNow()
+		}
+	})
 }
 
-func TestDivide(t *testing.T) {
-	ctx := Divide(10, 2)
+func TestDivide(tt *testing.T) {
 
-	if ctx != 5 {
-		t.Errorf("Test is fail: %d", ctx)
-	}
+	tt.Run("Should be divide value success", func(t *testing.T) {
+		ctx := Divide(10, 2)
+
+		if ctx != 5 {
+			t.FailNow()
+		}
+	})
+
+	tt.Run("Should be divide value is integer", func(t *testing.T) {
+		ctx := Divide(10, 2)
+
+		if reflect.TypeOf(ctx) == reflect.TypeOf("Hello Wordl") {
+			t.FailNow()
+		}
+	})
 }
 
-func TestMultiplication(t *testing.T) {
-	ctx := Multiplication(10, 2)
+func TestMultiplication(tt *testing.T) {
 
-	if ctx != 20 {
-		t.Errorf("Test is fail: %d", ctx)
-	}
+	tt.Run("Should be multiplication value success", func(t *testing.T) {
+		ctx := Multiplication(10, 2)
+
+		if ctx != 20 {
+			t.FailNow()
+		}
+	})
+
+	tt.Run("Should be multiplication value is integer", func(t *testing.T) {
+		ctx := Multiplication(10, 2)
+
+		if reflect.TypeOf(ctx) == reflect.TypeOf("Hello Wordl") {
+			t.FailNow()
+		}
+	})
 }

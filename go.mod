@@ -5,6 +5,7 @@ go 1.16
 require (
 	github.com/fatih/color v1.13.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
+	github.com/golang/mock v1.6.0
 	github.com/mattn/go-colorable v0.1.11 // indirect
 	github.com/onsi/ginkgo v1.16.4 // indirect
 	github.com/rakyll/gotest v0.0.6 // indirect

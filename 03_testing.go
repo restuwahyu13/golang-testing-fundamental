@@ -31,10 +31,10 @@ func PostRequest(rw http.ResponseWriter, req *http.Request) {
 
 	if req.Method == "POST" && req.URL.Path == "/post" {
 
-		data, err := io.ReadAll(req.Body)
+		data, _ := io.ReadAll(req.Body)
 		req.Body.Close()
 
-		if err != nil {
+		if len(string(data)) < 1 {
 			data := Response{Message: "Hello World From - POST"}
 			json, _ := json.Marshal(data)
 			fmt.Fprint(rw, string(json))
