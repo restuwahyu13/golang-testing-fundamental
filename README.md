@@ -10,6 +10,14 @@
 
 ## Command
 
+- ### Testing
+
 ```sh
 $ make test || go test -v ./...
+```
+
+- ### Coverage Testing
+
+```sh
+$ make coverage || go test -cover -v ./...
 ```
