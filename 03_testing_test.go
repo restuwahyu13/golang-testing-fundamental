@@ -13,6 +13,7 @@ import (
 func TestGetRequest(tt *testing.T) {
 
 	tt.Run("Should be get request data success", func(t *testing.T) {
+
 		var response Response
 		assert := assert.New(t)
 
@@ -25,11 +26,11 @@ func TestGetRequest(tt *testing.T) {
 		err := json.Unmarshal([]byte(rr.Body.String()), &response)
 
 		if err != nil {
-			t.Error("Parse JSON Data Error")
+			t.FailNow()
 		}
 
 		if response.Message == "Bad Request" {
-			t.Error("Request Failed")
+			t.FailNow()
 		}
 
 		r := rr.Result()
@@ -40,6 +41,7 @@ func TestGetRequest(tt *testing.T) {
 	})
 
 	tt.Run("Should be get request data error", func(t *testing.T) {
+
 		var response Response
 		assert := assert.New(t)
 
@@ -52,7 +54,7 @@ func TestGetRequest(tt *testing.T) {
 		err := json.Unmarshal([]byte(rr.Body.String()), &response)
 
 		if err != nil {
-			t.Error("Parse JSON Data Error")
+			t.FailNow()
 		}
 
 		r := rr.Result()
@@ -66,6 +68,7 @@ func TestGetRequest(tt *testing.T) {
 func TestPostRequest(tt *testing.T) {
 
 	tt.Run("Should be not parsing data from body", func(t *testing.T) {
+
 		var response Response
 		assert := assert.New(t)
 
@@ -78,11 +81,11 @@ func TestPostRequest(tt *testing.T) {
 		err := json.Unmarshal([]byte(rr.Body.String()), &response)
 
 		if err != nil {
-			t.Fail()
+			t.FailNow()
 		}
 
 		if response.Message == "Bad Request" {
-			t.Fail()
+			t.FailNow()
 		}
 
 		r := rr.Result()
@@ -93,6 +96,7 @@ func TestPostRequest(tt *testing.T) {
 	})
 
 	tt.Run("Should be parsing data from body success", func(t *testing.T) {
+
 		var response Response
 		assert := assert.New(t)
 
@@ -107,11 +111,11 @@ func TestPostRequest(tt *testing.T) {
 		err := json.Unmarshal([]byte(rr.Body.String()), &response)
 
 		if err != nil {
-			t.Fail()
+			t.FailNow()
 		}
 
 		if response.Message == "Bad Request" {
-			t.Fail()
+			t.FailNow()
 		}
 
 		r := rr.Result()
@@ -122,6 +126,7 @@ func TestPostRequest(tt *testing.T) {
 	})
 
 	tt.Run("Should be not parsing data from body error", func(t *testing.T) {
+
 		var response Response
 		assert := assert.New(t)
 
@@ -136,7 +141,7 @@ func TestPostRequest(tt *testing.T) {
 		err := json.Unmarshal([]byte(rr.Body.String()), &response)
 
 		if err != nil {
-			t.Fail()
+			t.FailNow()
 		}
 
 		r := rr.Result()
