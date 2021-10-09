@@ -14,6 +14,7 @@ $ go mod download || go get .
 - **03_testing** write API testing using testify
 - **04_testing** write API testing using gin framework, testify and go supertest
 - **05_testing** write testing using ginkgo bdd testing framework
+- **06_testing** write testing using  gin framework and ginkgo bdd testing framework
 
 ## Rule Using Ginkgo
 
